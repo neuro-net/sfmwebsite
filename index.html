@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sensors & Functional Materials Group</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Space Grotesk', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              lab: {
+                black: '#000000',
+                paper: '#f0f0f0', // Slightly grayer for that 90s OS feel
+                white: '#ffffff',
+                accent: '#008080', // Teal
+                accentHOVER: '#006666',
+                warm: '#ffcc00', // Amber
+                alert: '#ff0055', // Digital Red
+                grid: '#cccccc'
+              }
+            },
+            boxShadow: {
+              'retro': '4px 4px 0px 0px #000000',
+              'retro-hover': '2px 2px 0px 0px #000000',
+              'retro-deep': '8px 8px 0px 0px #000000',
+            },
+            backgroundImage: {
+              'grid-pattern': "radial-gradient(#a0a0a0 1px, transparent 1px)",
+              'stripes': "linear-gradient(45deg, #000 25%, transparent 25%, transparent 50%, #000 50%, #000 75%, transparent 75%, transparent)"
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #e0e0e0;
+        background-image: 
+          linear-gradient(#ccc 1px, transparent 1px),
+          linear-gradient(90deg, #ccc 1px, transparent 1px);
+        background-size: 20px 20px;
+        color: #000;
+      }
+      
+      /* CRT Scanline Overlay */
+      .scanlines::before {
+        content: " ";
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+        z-index: 9999;
+        background-size: 100% 2px, 3px 100%;
+        pointer-events: none;
+      }
+
+      /* Pixelated Images */
+      img {
+        image-rendering: pixelated;
+      }
+
+      /* Retro Scrollbar */
+      ::-webkit-scrollbar {
+        width: 16px;
+        background: #c0c0c0;
+        border-left: 2px solid #fff;
+      }
+      ::-webkit-scrollbar-track {
+        background: #e0e0e0;
+        box-shadow: inset 1px 1px 2px rgba(0,0,0,0.5);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #c0c0c0;
+        border: 2px solid #e0e0e0;
+        box-shadow: inset -1px -1px 0 #000, inset 1px 1px 0 #fff;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #a0a0a0;
+      }
+
+      /* Custom Selection */
+      ::selection {
+        background: #000080;
+        color: #fff;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0"
+  }
+}
+</script>
+</head>
+  <body class="scanlines">
+    <div id="root"></div>
+  </body>
+</html>
